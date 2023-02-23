@@ -1,0 +1,79 @@
+$bg-gray: #FDFDFB;
+$bg-beige: #F7F5EF;
+$black: #1B1A17;
+$bg-black: #444240;
+$bg-btn-beige: #D4B098;
+$header-text-black: #555248;
+
+$Roboto: "Roboto", "Arial", sans-serif;
+$Prata: "Prata", "Arial", serif;
+$PlayfairDisplay: "PlayfairDisplay", "Arial", serif;
+
+%inline-flex-start-center {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+%flex-start {
+  display: flex;
+  justify-content: flex-start;
+}
+%flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+%flex-start-center {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+%flex-start-end {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+%flex-center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+%flex-center-start {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+%flex-between-center {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+%flex-end-center {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+@mixin reset-list($type: 0) {
+  margin: 0;
+  padding: 0;
+  @if $type == 0 {
+    list-style: none;
+  }
+}
+@mixin text-line($width: 50px, $pad: 15px, $pos: left) {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    @if $pos == left {
+      left: -($width + $pad);
+    } @else {
+      right: -($width + $pad);
+    }
+    margin: auto;
+    width: $width;
+    height: 1px;
+    background-color: #8B8371;
+  }
+}

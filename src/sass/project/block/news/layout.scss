@@ -1,0 +1,123 @@
+.news {
+  background-color: #FFFFFF;
+  padding-top: 81px;
+  padding-bottom: 90px;
+  &__wrap {
+    @extend %flex-between;
+  }
+  &__info {
+    @extend %flex-center-start;
+    flex-direction: column;
+    position: relative;
+    flex: 1 1 auto;
+    margin-right: 40px;
+  }
+  &__desc {
+    max-width: 376px;
+    font-size: 16px;
+    color: $bg-black;
+    line-height: 1.5;
+    margin: 0;
+    &>* {
+      font-weight: 700;
+      line-height: inherit;
+      font-size: inherit;
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+  &__social {
+    @extend %flex-start-end;
+    position: absolute;
+    bottom: 62px;
+    left: 0;
+    font-size: 0;
+    &>* {
+      flex: 0 0 23px;
+      width: 23px;
+      height: 23px;
+      margin-left: 18px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+    & svg {
+      width: 100%;
+      height: 100%;
+      object-position: bottom;
+      object-fit: contain;
+      fill: #5C5C50;
+    }
+  }
+  &__tile-img {
+    flex: 0 0 53%;
+    width: 53%;
+    display: grid;
+    grid-template-columns: 39% 61%;
+    &>* {
+      margin: 0;
+      overflow: hidden;
+    }
+    &_small-1 {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 2;
+      margin-bottom: 5px;
+    }
+    &_small-2 {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 2;
+      grid-row-end: 3;
+      margin-top: 5px;
+    }
+    &_big-1 {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 3;
+      margin-left: 10px;
+    }
+    & img {
+      width: 100%;
+      height: 100%;
+      object-position: center;
+      object-fit: cover;
+    }
+  }
+}
+@media(hover) {
+  .news {
+    &__desc {
+      & a {
+        transition-duration: .3s;
+        &:hover {
+          color: $bg-btn-beige;
+        }
+      }
+    }
+    &__social {
+      & svg {
+        transition-duration: .3s;
+      }
+      &>*[href]:hover {
+        & svg {
+          fill: $bg-btn-beige;
+        }
+      }
+    }
+    &__tile-img {
+      &>* {
+        & img {
+          transition-duration: 1s;
+        }
+        &:hover {
+          & img {
+            transform: scale(1.3);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+.header {
+  padding-top: 31px;
+  padding-bottom: 28px;
+  &__wrap {
+    @extend %flex-between-center;
+  }
+  &__logo {
+    @extend %flex-start-center;
+    font-size: 12px;
+    color: $header-text-black;
+    font-family: $PlayfairDisplay;
+    letter-spacing: 0.14em;
+    margin-top: 0;
+    margin-bottom: 0;
+    & img {
+      flex: 0 0 26px;
+      width: 26px;
+      height: 26px;
+      margin-right: 10px;
+    }
+  }
+  &__nav {
+    @extend %inline-flex-start-center;
+    padding-left: 60px;
+    padding-right: 60px;
+    &_link {
+      margin-left: 65px;
+      color: $header-text-black;
+      font-size: 14px;
+      text-decoration: none;
+      white-space: nowrap;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+  &__panel {
+    @extend %flex-end-center;
+    &>* {
+      margin-left: 23px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+    & svg {
+      width: 19px;
+      height: 16px;
+      object-position: center;
+      object-fit: contain;
+      fill: $black;
+    }
+    &_search {
+      background: transparent;
+      outline: none;
+      border: none;
+    }
+    &_favorites {
+      position: relative;
+      & svg {
+        stroke: $black;
+        stroke-width: .75;
+      }
+      & span {
+        position: absolute;
+        top: -5px;
+        right: -8px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: #E6C8B4;
+        text-align: center;
+        line-height: 13px;
+        font-size: 8px;
+        color: $black;
+      }
+    }
+  }
+}
+@media(hover) {
+  .header {
+    &__nav {
+      &_link {
+        transition-duration: .3s;
+        &:hover {
+          color: $bg-btn-beige;
+        }
+      }
+    }
+    &__panel {
+      &>* {
+        cursor: pointer;
+      }
+      & svg {
+        transition-duration: .3s;
+        &:hover {
+          fill: $bg-btn-beige;
+        }
+      }
+      &_favorites {
+        &:hover {
+          & svg {
+            stroke: $bg-btn-beige;
+          }
+        }
+      }
+    }
+  }
+}
