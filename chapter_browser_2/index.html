@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script defer src="script.js"></script>
+
+    <style>
+        /*2.1.3*/
+        /*#field {*/
+        /*    width: 200px;*/
+        /*    height: 150px;*/
+        /*    border: 10px solid black;*/
+        /*    background-color: #00FF00;*/
+        /*    position: relative;*/
+        /*    overflow: hidden;*/
+        /*    cursor: pointer;*/
+        /*}*/
+
+        /*#ball {*/
+        /*    position: absolute;*/
+        /*    left: 0;*/
+        /*    top: 0;*/
+        /*    width: 40px;*/
+        /*    height: 40px;*/
+        /*    transition: all 1s;*/
+        /*}*/
+
+        /*2.1.4*/
+        /*.menu ul {*/
+        /*    margin: 0;*/
+        /*    list-style: none;*/
+        /*    padding-left: 20px;*/
+        /*    display: none;*/
+        /*}*/
+
+        /*.menu .title {*/
+        /*    font-size: 18px;*/
+        /*    cursor: pointer;*/
+        /*}*/
+
+        /*.menu .title::before {*/
+        /*    content: '▶ ';*/
+        /*    font-size: 80%;*/
+        /*    color: green;*/
+        /*}*/
+
+        /*.menu.open .title::before {*/
+        /*    content: '▼ ';*/
+        /*}*/
+
+        /*.menu.open ul {*/
+        /*    display: block;*/
+        /*}*/
+
+        /*2.1.5*/
+        /*body {*/
+        /*    margin: 10px auto;*/
+        /*    width: 470px;*/
+        /*}*/
+
+        /*h3 {*/
+        /*    margin: 0;*/
+        /*    padding-bottom: .3em;*/
+        /*    padding-right: 20px;*/
+        /*    font-size: 1.1em;*/
+        /*}*/
+
+        /*p {*/
+        /*    margin: 0;*/
+        /*    padding: 0 0 .5em;*/
+        /*}*/
+
+        /*.pane {*/
+        /*    background: #edf5e1;*/
+        /*    padding: 10px 20px 10px;*/
+        /*    border-top: solid 2px #c4df9b;*/
+        /*    position: relative;*/
+        /*}*/
+
+        /*.remove-button {*/
+        /*    position: absolute;*/
+        /*    font-size: 110%;*/
+        /*    top: 0;*/
+        /*    color: darkred;*/
+        /*    right: 10px;*/
+        /*    display: block;*/
+        /*    width: 24px;*/
+        /*    height: 24px;*/
+        /*    border: none;*/
+        /*    background: transparent;*/
+        /*    cursor: pointer;*/
+        /*}*/
+
+        /*2.1.6*/
+        /*body {*/
+        /*    padding: 10px;*/
+        /*}*/
+
+        /*.carousel {*/
+        /*    position: relative;*/
+        /*    width: 398px;*/
+        /*    padding: 10px 40px;*/
+        /*    border: 1px solid #CCC;*/
+        /*    border-radius: 15px;*/
+        /*    background: #eee;*/
+        /*}*/
+
+        /*.carousel img {*/
+        /*    width: 130px;*/
+        /*    height: 130px;*/
+        /*    !* делаем этот элемент блочным, чтобы убрать лишнее пространство вокруг картинок *!*/
+        /*    display: block;*/
+        /*}*/
+
+        /*.arrow {*/
+        /*    position: absolute;*/
+        /*    top: 60px;*/
+        /*    padding: 0;*/
+        /*    background: #ddd;*/
+        /*    border-radius: 15px;*/
+        /*    border: 1px solid gray;*/
+        /*    font-size: 24px;*/
+        /*    line-height: 24px;*/
+        /*    color: #444;*/
+        /*    display: block;*/
+        /*}*/
+
+        /*.arrow:focus {*/
+        /*    outline: none;*/
+        /*}*/
+
+        /*.arrow:hover {*/
+        /*    background: #ccc;*/
+        /*    cursor: pointer;*/
+        /*}*/
+
+        /*.prev {*/
+        /*    left: 7px;*/
+        /*}*/
+
+        /*.next {*/
+        /*    right: 7px;*/
+        /*}*/
+
+        /*.gallery {*/
+        /*    width: 390px;*/
+        /*    overflow: hidden;*/
+        /*}*/
+
+        /*.gallery ul {*/
+        /*    height: 130px;*/
+        /*    width: 9999px;*/
+        /*    margin: 0;*/
+        /*    padding: 0;*/
+        /*    list-style: none;*/
+        /*    transition: margin-left 250ms;*/
+        /*    !* удаляем пустое пространство между элементами li, у которых установлен inline-block *!*/
+        /*    !* http://davidwalsh.name/remove-whitespace-inline-block *!*/
+        /*    font-size: 0;*/
+        /*}*/
+
+        /*.gallery li {*/
+        /*    display: inline-block;*/
+        /*}*/
+
+        /*2.3.1*/
+        /*body {*/
+        /*    margin: 10px auto;*/
+        /*    width: 470px;*/
+        /*}*/
+
+        /*h3 {*/
+        /*    margin: 0;*/
+        /*    padding-bottom: .3em;*/
+        /*    padding-right: 20px;*/
+        /*    font-size: 1.1em;*/
+        /*}*/
+
+        /*p {*/
+        /*    margin: 0;*/
+        /*    padding: 0 0 .5em;*/
+        /*}*/
+
+        /*.pane {*/
+        /*    background: #edf5e1;*/
+        /*    padding: 10px 20px 10px;*/
+        /*    border-top: solid 2px #c4df9b;*/
+        /*    position: relative;*/
+        /*}*/
+
+        /*.remove-button {*/
+        /*    position: absolute;*/
+        /*    font-size: 110%;*/
+        /*    top: 0;*/
+        /*    color: darkred;*/
+        /*    right: 10px;*/
+        /*    display: block;*/
+        /*    width: 24px;*/
+        /*    height: 24px;*/
+        /*    border: none;*/
+        /*    background: transparent;*/
+        /*    cursor: pointer;*/
+        /*}*/
+
+        /*2.3.2*/
+        /*.tree span:hover {*/
+        /*    font-weight: bold;*/
+        /*}*/
+
+        /*.tree span {*/
+        /*    cursor: pointer;*/
+        /*}*/
+
+        /*2.3.3*/
+        /*table {*/
+        /*    border-collapse: collapse;*/
+        /*}*/
+        /*th, td {*/
+        /*    border: 1px solid black;*/
+        /*    padding: 4px;*/
+        /*}*/
+        /*th {*/
+        /*    cursor: pointer;*/
+        /*}*/
+        /*th:hover {*/
+        /*    background: yellow;*/
+        /*}*/
+
+        /*2.3.4*/
+        /*body {*/
+        /*    height: 2000px;*/
+        /*    !* добавим body прокрутку, подсказка должна работать и с прокруткой *!*/
+        /*}*/
+
+        /*.tooltip {*/
+        /*    position: fixed;*/
+        /*    padding: 10px 20px;*/
+        /*    border: 1px solid #b3c9ce;*/
+        /*    border-radius: 4px;*/
+        /*    text-align: center;*/
+        /*    font: italic 14px/1.3 sans-serif;*/
+        /*    color: #333;*/
+        /*    background: #fff;*/
+        /*    box-shadow: 3px 3px 3px rgba(0, 0, 0, .3);*/
+        /*}*/
+
+        /*2.4.2*/
+        /*#contents {*/
+        /*    padding: 5px;*/
+        /*    border: 1px green solid;*/
+        /*}*/
+
+        /*2.4.3*/
+        /*body {*/
+        /*    margin: 0;*/
+        /*    padding: 0;*/
+        /*    font: 75%/120% sans-serif;*/
+        /*}*/
+
+        /*#largeImg {*/
+        /*    border: solid 1px #ccc;*/
+        /*    width: 550px;*/
+        /*    height: 400px;*/
+        /*    padding: 5px;*/
+        /*}*/
+
+        /*#thumbs a {*/
+        /*    border: solid 1px #ccc;*/
+        /*    width: 100px;*/
+        /*    height: 100px;*/
+        /*    padding: 3px;*/
+        /*    margin: 2px;*/
+        /*    float: left;*/
+        /*}*/
+
+        /*#thumbs a:hover {*/
+        /*    border-color: #FF9900;*/
+        /*}*/
+
+        /*#thumbs li {*/
+        /*    list-style: none;*/
+        /*}*/
+
+        /*#thumbs {*/
+        /*    margin: 0;*/
+        /*    padding: 0;*/
+        /*}*/
+
+
+    </style>
+</head>
+<body>
+<!--2.1.1-->
+<!--<input type="button" id="hider" value="Нажмите, чтобы спрятать текст" />-->
+
+<!--<div id="text">Текст</div>-->
+
+<!--2.1.2-->
+<!--<input type="button" onclick="this.hidden=true" value="Нажми, чтобы спрятать">-->
+
+<!--2.1.3-->
+<!--Нажмите на поле для перемещения мяча.-->
+<!--<br>-->
+
+
+<!--<div id="field">-->
+<!--    <img src="https://ru.js.cx/clipart/ball.svg" id="ball"> . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .-->
+<!--    . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .-->
+<!--</div>-->
+
+<!--2.1.4-->
+<!--<div id="sweeties" class="menu">-->
+<!--    <span class="title">Сладости (нажми меня)!</span>-->
+<!--    <ul>-->
+<!--        <li>Пирожное</li>-->
+<!--        <li>Пончик</li>-->
+<!--        <li>Мёд</li>-->
+<!--    </ul>-->
+
+<!--</div>-->
+
+<!--2.1.5-->
+<!--<div>-->
+<!--    <div class="pane">-->
+<!--        <h3>Лошадь</h3>-->
+<!--        <p>Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.</p>-->
+<!--    </div>-->
+<!--    <div class="pane">-->
+<!--        <h3>Осёл</h3>-->
+<!--        <p>Домашний осёл (лат. Equus asinus asinus), или ишак, — одомашненный подвид дикого осла (Equus asinus), сыгравший важную историческую роль в развитии хозяйства и культуры человека и по-прежнему широко в хозяйстве многих развивающихся стран.</p>-->
+<!--    </div>-->
+<!--    <div class="pane">-->
+<!--        <h3>Кошка</h3>-->
+<!--        <p>Кошка, или домашняя кошка (лат. Felis silvestris catus), — домашнее животное, одно из наиболее популярных(наряду с собакой) «животных-компаньонов». Являясь одиночным охотником на грызунов и других мелких животных, кошка — социальное животное, использующее для общения широкий диапазон звуковых сигналов.</p>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--2.1.6-->
+<!--<div id="carousel" class="carousel">-->
+<!--    <button class="arrow prev">⇦</button>-->
+<!--    <div class="gallery">-->
+<!--        <ul>-->
+<!--            <li><img src="https://ru.js.cx/carousel/1.png"></li>-->
+<!--            <li><img src="https://ru.js.cx/carousel/2.png"></li>-->
+<!--            <li><img src="https://ru.js.cx/carousel/3.png"></li>-->
+<!--            <li><img src="https://ru.js.cx/carousel/4.png"></li>-->
+<!--            <li><img src="https://ru.js.cx/carousel/5.png"></li>-->
+<!--            <li><img src="https://ru.js.cx/carousel/6.png"></li>-->
+<!--            <li><img src="https://ru.js.cx/carousel/7.png"></li>-->
+<!--            <li><img src="https://ru.js.cx/carousel/8.png"></li>-->
+<!--            <li><img src="https://ru.js.cx/carousel/9.png"></li>-->
+<!--            <li><img src="https://ru.js.cx/carousel/10.png"></li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--    <button class="arrow next">⇨</button>-->
+<!--</div>-->
+
+<!--2.3.1-->
+<!--<div id="container">-->
+<!--    <div class="pane">-->
+<!--        <h3>Лошадь</h3>-->
+<!--        <p>Домашняя лошадь - животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.</p>-->
+<!--        <button class="remove-button">[x]</button>-->
+<!--    </div>-->
+<!--    <div class="pane">-->
+<!--        <h3>Осёл</h3>-->
+<!--        <p>Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший важную историческую роль в развитии хозяйства и культуры человека. Все одомашненные ослы относятся к африканским ослам.</p>-->
+<!--        <button class="remove-button">[x]</button>-->
+<!--    </div>-->
+<!--    <div class="pane">-->
+<!--        <h3>Кошка</h3>-->
+<!--        <p>Кошка, или домашняя кошка (лат. Félis silvéstris cátus), — домашнее животное, одно из наиболее популярных (наряду с собакой) "животных-компаньонов". С точки зрения научной систематики, домашняя кошка — млекопитающее семейства кошачьих отряда хищных. Ранее домашнюю кошку нередко рассматривали как отдельный биологический вид.-->
+<!--        </p>-->
+<!--        <button class="remove-button">[x]</button>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--2.3.2-->
+<!--<ul class="tree" id="tree">-->
+<!--    <li>Животные-->
+<!--        <ul>-->
+<!--            <li>Млекопитающие-->
+<!--                <ul>-->
+<!--                    <li>Коровы</li>-->
+<!--                    <li>Ослы</li>-->
+<!--                    <li>Собаки</li>-->
+<!--                    <li>Тигры</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>Другие-->
+<!--                <ul>-->
+<!--                    <li>Змеи</li>-->
+<!--                    <li>Птицы</li>-->
+<!--                    <li>Ящерицы</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </li>-->
+<!--    <li>Рыбы-->
+<!--        <ul>-->
+<!--            <li>Аквариумные-->
+<!--                <ul>-->
+<!--                    <li>Гуппи</li>-->
+<!--                    <li>Скалярии</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--            <li>Морские-->
+<!--                <ul>-->
+<!--                    <li>Морская форель</li>-->
+<!--                </ul>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </li>-->
+<!--</ul>-->
+
+<!--2.3.3-->
+<!--<table id="grid">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th data-type="number">Возраст</th>-->
+<!--        <th data-type="string">Имя</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr>-->
+<!--        <td>5</td>-->
+<!--        <td>Вася</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>2</td>-->
+<!--        <td>Петя</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>12</td>-->
+<!--        <td>Женя</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>9</td>-->
+<!--        <td>Маша</td>-->
+<!--    </tr>-->
+<!--    <tr>-->
+<!--        <td>1</td>-->
+<!--        <td>Илья</td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+
+<!--2.3.4-->
+<!--<p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>-->
+<!--<p>ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя ЛяЛяЛя</p>-->
+
+<!--<button data-tooltip="эта подсказка должна быть длиннее, чем элемент">Короткая кнопка</button>-->
+<!--<button data-tooltip="HTML<br>подсказка">Ещё кнопка</button>-->
+
+<!--<p>Прокрутите страницу, чтобы кнопки оказались у верхнего края, а затем проверьте, правильно ли выводятся подсказки.</p>-->
+
+<!--2.4.1-->
+<!--<a href="https://w3.org" onclick="handler(event)">w3.org</a>-->
+
+<!--2.4.2-->
+<!--<fieldset id="contents">-->
+<!--    <legend>#contents</legend>-->
+<!--    <p>-->
+<!--        Как насчёт того, чтобы прочитать <a href="https://wikipedia.org">Википедию</a> или посетить <a href="https://w3.org"><i>W3.org</i></a> и узнать о современных стандартах?-->
+<!--    </p>-->
+<!--</fieldset>-->
+
+<!--2.4.3-->
+<!--<p><img id="largeImg" src="https://en.js.cx/gallery/img1-lg.jpg" alt="Large image"></p>-->
+
+<!--<ul id="thumbs">-->
+<!--    &lt;!&ndash; браузер показывает небольшую встроенную подсказку из атрибута "title" при наведении курсора на текст &ndash;&gt;-->
+<!--    <li>-->
+<!--        <a href="https://en.js.cx/gallery/img2-lg.jpg" title="Image 2"><img src="https://en.js.cx/gallery/img2-thumb.jpg"></a>-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        <a href="https://en.js.cx/gallery/img3-lg.jpg" title="Image 3"><img src="https://en.js.cx/gallery/img3-thumb.jpg"></a>-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        <a href="https://en.js.cx/gallery/img4-lg.jpg" title="Image 4"><img src="https://en.js.cx/gallery/img4-thumb.jpg"></a>-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        <a href="https://en.js.cx/gallery/img5-lg.jpg" title="Image 5"><img src="https://en.js.cx/gallery/img5-thumb.jpg"></a>-->
+<!--    </li>-->
+<!--    <li>-->
+<!--        <a href="https://en.js.cx/gallery/img6-lg.jpg" title="Image 6"><img src="https://en.js.cx/gallery/img6-thumb.jpg"></a>-->
+<!--    </li>-->
+<!--</ul>-->
+
+</body>
+</html>
