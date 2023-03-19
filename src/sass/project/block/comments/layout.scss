@@ -1,0 +1,69 @@
+.comments {
+  &__text-empty {
+    text-align: center;
+    font-size: 18px;
+  }
+  &__item {
+    padding: 20px;
+    border: 1px solid $green;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &__top, &__bot {
+    @extend %flex-between-center;
+  }
+  &__top {
+    margin-bottom: 20px;
+  }
+  &__name {
+    font-size: 18px;
+    margin-right: 20px;
+  }
+  &__btn-remove, &__like {
+    border: none;
+    outline: none;
+    transition-duration: .3s;
+    cursor: pointer;
+    & svg {
+      width: 100%;
+      height: 100%;
+      object-position: center;
+      object-fit: contain;
+    }
+    &:hover {
+      opacity: .65;
+    }
+  }
+  &__btn-remove {
+    flex: 0 0 30px;
+    width: 30px;
+    height: 30px;
+    & svg {
+      fill: $red;
+    }
+  }
+  &__like {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    & svg {
+      fill: transparent;
+      stroke: $text-gray;
+      transition-duration: .3s;
+    }
+    &.active {
+      & svg {
+        fill: $green;
+        stroke: $green;
+      }
+    }
+  }
+  &__text {
+    font-size: 16px;
+    line-height: 1.35;
+    margin-bottom: 20px;
+  }
+}

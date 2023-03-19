@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comments</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+    <div class="wrapper container">
+        <div class="form-comment">
+            <p class="form-comment__title">Добавьте свой комментарий</p>
+            <form class="form-comment__form" data-form>
+                <label class="form-comment__row">
+                    <span class="form-comment__label">Введите имя <b>*</b></span>
+                    <input type="text" class="form-comment__input" data-field-name>
+                </label>
+                <label class="form-comment__row">
+                    <span class="form-comment__label">Введите комментарий <b>*</b></span>
+                    <textarea type="text" class="form-comment__textarea" data-field-comment></textarea>
+                </label>
+                <label class="form-comment__row">
+                    <span class="form-comment__label">Введите дату:</span>
+                    <input type="date" class="form-comment__input" data-field-date>
+                </label>
+                <button type="submit" class="form-comment__btn-submit btn btn--green">Добавить</button>
+            </form>
+        </div>
+        <section class="comments" data-comments>
+            <header>
+                <h2 class="title title--block">Комментарии</h2>
+            </header>
+            <p class="comments__text-empty" data-comments-text-empty>Нет комментариев</p>
+        </section>
+    </div>
+</body>
+</html>
