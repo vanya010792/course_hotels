@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Comments</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/script.js"></script>
+</head>
+<body>
+    <div class="wrapper container">
+        <div class="search">
+            <p class="search__title">Введите название репозитория</p>
+            <form class="search__form" data-search-form>
+                <input type="text" class="search__input" data-field-name>
+                <button type="submit" class="search__btn-submit btn btn--green">Добавить</button>
+            </form>
+        </div>
+        <section class="repositories" data-repositories>
+            <header>
+                <h2 class="title title--block">Результат поиска:</h2>
+            </header>
+            <p class="repositories__text-empty" data-repositories-text-empty>Пусто</p>
+            <ul class="repositories__ul" data-repositories-list></ul>
+        </section>
+    </div>
+</body>
+</html>
